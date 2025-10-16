@@ -1,2 +1,2 @@
-# C-OOPM
+# C++ OOPM
 all basic OOPM concepts code
