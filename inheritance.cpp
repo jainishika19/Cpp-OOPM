@@ -1,35 +1,136 @@
+//single inheritance
+
+// #include<iostream>
+// using namespace std;
+// class Parent{
+//     public:
+//     void parentcar(){
+//         cout<<"I have embassador car"<<endl;
+//     }
+// };
+// class Child:public Parent{//child class inherit all properties of parent class
+//     public:
+//     void childcar(){
+//         cout<<"I have mercedes"<<endl;
+//         parentcar();
+//     }
+// };
+// int main(){
+//     Parent P1;
+//     Child C1;
+//     C1.childcar();
+    
+//     return 0;
+// }
+
+//multilevel inheritance
+// #include<iostream>
+// using namespace std;
+// class Parent{
+//     public:
+//     void parentcar(){
+//         cout<<"I have embassador car"<<endl;
+//     }
+// };
+// class Child:public Parent{//child class inherit all properties of parent class
+//     public:
+//     void childcar(){
+//         cout<<"I have mercedes"<<endl;
+//         parentcar();
+//     }
+// };
+// class future:public Child{
+//     public:
+//     void newcar(){
+//         childcar();
+//         cout<<"i will have flying car"<<endl;
+        
+//     }
+// };
+
+
+// int main(){
+//     Parent P1;
+//     Child C1;
+//     future F1;
+//     F1.newcar();
+
+//     return 0;
+// }
+//multiple inheritance
+// #include<iostream>
+// using namespace std;
+// class Father{
+//     public:
+//     void eyes(){
+//         cout<<"brown eyes"<<endl;
+//     }
+// };
+// class Mother{
+//     public:
+//     void race(){
+//         cout<<"asian"<<endl;
+//     }
+// };
+// class Child:public Father,public Mother{
+//     public:
+//     void props(){
+//        race();
+//        eyes();
+//     }
+
+// };
+
+// int main(){
+//     Child C1;
+//     C1.props();
+    
+//     return 0;
+// }
+
+//q
 #include<iostream>
 using namespace std;
-class parent{
+class Animal{
     public:
-    string name;
-    int marks;
-    parent(){
-        cout<<"i am parent constructor"<<endl;
+    void eat(){
+        cout<<"animal is eating"<<endl;
     }
 };
-class child:public parent{
+class Bird:public Animal{
     public:
-    int rollNo;
-    child(){
-        cout<<"i am child constructor"<<endl;
+    void wings(){
+        cout<<"bird is flying"<<endl;
+        eat();
     }
-    void getinfo(){
-        cout<<"name is:"<<name<<endl;
-        cout<<"marks is:"<<marks<<endl;
-        cout<<"rollNo is:"<<rollNo<<endl;
-    }
+};
+class Mammal:public Animal{
+    public:
+    void m(){
+         cout<<"doesn't lays eggs"<<endl;
+         eat();
 
+    }
+};
+class Bat:public Mammal,public Bird{
+    public:
+    void navigate(){
+        cout<<"bat is navigating"<<endl;
+        wings();
+        m();
+    }
 };
 
 int main(){
-    // parent p1;//if we create this 2 times PARENT CONST. CALLED
-    child c1;//when compiler reads this 1st it call parent const .then child const. 
-    c1.name="jia";
-    c1.marks=100;
-    c1.rollNo=34;
-    c1.getinfo();
+    // Bird B1;
+    // Mammal M1;
+    // B1.wings();
+    // M1.m();
+    Bat b1;
+    b1.navigate();
+    // b1.m();
+    // b1.wings();
+
+    
     return 0;
 }
-//NOTE---1ST PARENT CLASS "CONSTRUCTOR" CALLED THEN CHILD CLASS CONST CALLED
-//and in "destructor" 1st child class memory deallocate and then parent class memory deallocates
